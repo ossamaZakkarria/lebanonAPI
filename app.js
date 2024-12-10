@@ -1,6 +1,8 @@
 const express = require("express");
 const xlsx = require("xlsx");
 const app = express();
+const cors = require("cors");
+app.use(cors());
 
 app.get("/", function (req, res) {
   res.send("Hello World");
@@ -22,7 +24,7 @@ app.get("/drugsAPI", function (req, res) {
     Price: row.Price || null,
   }));
 
-  console.log(data);
+  //console.log(data);
   res.send(data);
 });
 
